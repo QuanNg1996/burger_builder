@@ -11,11 +11,11 @@ import classes from './CheckoutSummary.module.css'
         <Burger ingredients={props.ingredients} />
       </div>
       <Button
-        btnType="Success"
-        clicked>CONTINUE</Button>
-      <Button
         btnType="Danger"
-        clicked>CANCEL</Button>
+        clicked={props.checkoutCancelled}>CANCEL</Button>
+      <Button
+        btnType="Success"
+        clicked={props.checkoutContinued}>CONTINUE</Button>
     </div>
   );
 }
