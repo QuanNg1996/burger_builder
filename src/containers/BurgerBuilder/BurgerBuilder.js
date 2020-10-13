@@ -12,10 +12,6 @@ import axios from '../../axios-orders';
 import * as actionTypes from '../../store/actions';
 
 class BurgerBuilder extends Component {
-  // constructor(props) {
-  //     super(props);
-  //     this.state = {...}
-  // }
   state = {
     purchasing: false,
     loading: false,
@@ -76,7 +72,8 @@ class BurgerBuilder extends Component {
             disabled={disabledInfo}
             purchasable={this.updatePurchaseState(this.props.ings)}
             ordered={this.purchaseHandler}
-            price={this.props.price} />
+            price={this.props.price}
+          />
         </Aux>
       );
       orderSummary = <OrderSummary
@@ -100,14 +97,14 @@ class BurgerBuilder extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice
   };
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onIngredientAdded: (ingName) => dispatch({ type: actionTypes.ADD_INGREDIENT, ingredientName: ingName }),
     onIngredientRemoved: (ingName) => dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingName })
